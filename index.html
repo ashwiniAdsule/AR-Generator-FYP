@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AR Generator</title>
+    <style>
+        .live-cam {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+            background: white;
+        }
+    </style>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <script src="./libs/mindar/mindar-image-three.prod.js"></script>
+
+    <script src="./script.js" type="module"></script>
+
+</head>
+
+<body data-bs-theme="dark">
+    <div class="container">
+        <h1>AR Generator</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ModelAR-tab" data-bs-toggle="tab" data-bs-target="#ModelAR-tab-pane"
+                    type="button" role="tab" aria-controls="ModelAR-tab-pane" aria-selected="false">3D Argumented
+                    Reality</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="VideoAR-tab" data-bs-toggle="tab" data-bs-target="#VideoAR-tab-pane"
+                    type="button" role="tab" aria-controls="VideoAR-tab-pane" aria-selected="false">Video Argumented
+                    Reality</button>
+            </li>
+            <!-- <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="About-tab" data-bs-toggle="tab" data-bs-target="#About-tab-pane"
+                    type="button" role="tab" aria-controls="About-tab-pane" aria-selected="true">About</button>
+            </li> -->
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="ModelAR-tab-pane" role="tabpanel" aria-labelledby="ModelAR-tab" tabindex="0">
+                <h2>3D Model AR</h2>
+                <iframe src="https://hiukim.github.io/mind-ar-js-doc/tools/compile/" class="col-12"
+                    style="height: 70vh;">
+
+                </iframe>
+                <form>
+                    <div class="mb-3">
+                        <label for="mindFile" class="form-label">Please select .mind file</label>
+                        <input id="modelMindFile" class="form-control" type="file" id="mindFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ModelFile" class="form-label">Please select .glb file</label>
+                        <input id="modelRenderFile" class="form-control" type="file" id="modelFile">
+                    </div>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text">Model Position</span>
+                        <input id="modelPosX" type="text" aria-label="X" placeholder="X-Position" value="0"
+                            class="form-control text-center">
+                        <input id="modelPosY" type="text" aria-label="Y" placeholder="Y-Position" value="0"
+                            class="form-control text-center">
+                        <input id="modelPosZ" type="text" aria-label="Z" placeholder="Z-Position" value="0"
+                            class="form-control text-center">
+                    </div>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text">Model Scale</span>
+                        <input id="modelScaleX" type="text" aria-label="X" placeholder="X-Scale" value="1"
+                            class="form-control text-center">
+                        <input id="modelScaleY" type="text" aria-label="Y" placeholder="Y-Scale" value="1"
+                            class="form-control text-center">
+                        <input id="modelScaleZ" type="text" aria-label="Z" placeholder="Z-Scale" value="1"
+                            class="form-control text-center">
+                    </div>
+
+                </form>
+
+                <button id="modelAR-Run" type="submit" class="btn btn-primary mb-3">Start
+                    Argumented Reality</button>
+
+            </div>
+            <div class="tab-pane fade" id="VideoAR-tab-pane" role="tabpanel" aria-labelledby="VideoAR-tab" tabindex="0">
+                <h2>Video AR</h2>
+                <iframe src="https://hiukim.github.io/mind-ar-js-doc/tools/compile/" class="col-12"
+                    style="height: 70vh;">
+
+                </iframe>
+                <div class="mb-3">
+                    <label for="mindFile" class="form-label">Please select .mind file</label>
+                    <input id="videoMindFile" class="form-control" type="file">
+                </div>
+                <div class="mb-3">
+                    <label for="videoFile" class="form-label">Please select video file</label>
+                    <input id="videoRenderFile" class="form-control" type="file">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text">Video Scale</span>
+                    <input id="videoScaleX" type="text" aria-label="X" placeholder="X-Scale" value="1"
+                        class="form-control text-center">
+                    <input id="videoScaleY" type="text" aria-label="Y" placeholder="Y-Scale" value="1"
+                        class="form-control text-center">
+                </div>
+                <button id="videoAR-Run" class="btn btn-primary">Start Argumented
+                    Reality</button>
+
+            </div>
+            <!-- <div class="tab-pane fade " id="About-tab-pane" role="tabpanel" aria-labelledby="About-tab"
+                tabindex="0">
+                <h2>About</h2>
+            </div> -->
+        </div>
+
+        <div id="live-cam" class="live-cam position-absolute top-50 start-50 translate-middle" style="display: none;">
+            <button id="closelive-cam" class="btn btn-primary position-fixed top-0 end-0 m-3"
+                type="button">Close</button>
+        </div>
+</body>
+
+<script src="bootstrap.bundle.min.js"></script>
+<script src="popper.min.js"></script>
+
+</html>
